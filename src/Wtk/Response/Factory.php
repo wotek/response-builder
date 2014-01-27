@@ -10,8 +10,8 @@
 
 namespace Wtk\Response;
 
-use Wtk\Response\FactoryInterface as AbstractFactoryInterface;
-use Wtk\Response\Factory\FactoryInterface;
+use Wtk\Response\FactoryInterface;
+use Wtk\Response\Factory\FactoryInterface as ConcreteFactoryInterface;
 use Wtk\Response\Prototype\PrototypeInterface;
 
 use MD\Foundation\Utils\ArrayUtils;
@@ -21,7 +21,7 @@ use MD\Foundation\Utils\ArrayUtils;
  *
  * @author Wojtek Zalewski <wojtek@neverbland.com>
  */
-class Factory implements AbstractFactoryInterface
+class Factory implements FactoryInterface
 {
     /**
      * Concrete response factories
@@ -35,28 +35,30 @@ class Factory implements AbstractFactoryInterface
      *
      * @param  string  $type
      *
-     * @return FactoryInterface
+     * @return ConcreteFactoryInterface
      */
     protected function get($type)
     {
-        return ArrayUtils::get($type, $this->factories, null);
+        return ArrayUtils::get($this->factories, $type, null);
     }
 
     /**
      * Registers factory for given response $type.
      *
-     * @param  string           $type
-     * @param  FactoryInterface $factory
+     * @param  string                   $type
+     * @param  ConcreteFactoryInterface $factory
      *
      * @throws RuntimeException
      */
-    public function register($type, FactoryInterface $factory)
+    public function register($type, ConcreteFactoryInterface $factory)
     {
-        if(null !== $this->getFactory($type)) {
+        if(null !== $this->get($type)) {
             throw new \RuntimeException(
                 sprintf("Factory for type: %s is already registered.", $type)
             );
         }
+
+        $this->factories[$type] = $factory;
     }
 
     /**
@@ -74,9 +76,9 @@ class Factory implements AbstractFactoryInterface
         /**
          * Concrete factory instance.
          *
-         * @var FactoryInterface
+         * @var ConcreteFactoryInterface
          */
-        $factory = $this->getFactory($type);
+        $factory = $this->get($type);
 
         if(null === $factory) {
             throw new \RuntimeException(

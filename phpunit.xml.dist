@@ -13,7 +13,7 @@
    >
 
     <testsuites>
-        <testsuite name="Settings Test Suite">
+        <testsuite name="Response Builder Test Suite">
             <directory suffix="Test.php">./tests</directory>
         </testsuite>
     </testsuites>
@@ -25,7 +25,6 @@
                 <directory>./tests</directory>
                 <directory>./vendor</directory>
                 <directory>./doc</directory>
-                <directory>./bin</directory>
             </exclude>
         </whitelist>
     </filter>

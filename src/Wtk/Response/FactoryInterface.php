@@ -11,6 +11,7 @@
 namespace Wtk\Response;
 
 use Wtk\Response\Prototype\PrototypeInterface;
+use Wtk\Response\Factory\FactoryInterface as ConcreteFactoryInterface;
 
 /**
  * Response abstract factory interface.
@@ -39,5 +40,5 @@ interface FactoryInterface
      *
      * @return void
      */
-    function register($type, FactoryInterface $factory);
+    function register($type, ConcreteFactoryInterface $factory);
 }
