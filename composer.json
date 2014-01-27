@@ -1,0 +1,28 @@
+{
+    "name": "wotek/response-builder",
+    "description": "HTTP Response Builder",
+    "keywords": ["response", "json", "xml", "builder", "api", "response prototype"],
+    "require": {
+        "symfony/http-foundation": "dev-master",
+        "michaldudek/foundation": "dev-master"
+    },
+    "require-dev": {
+        "symfony/http-foundation": "dev-master",
+        "phpunit/phpunit": "dev-master",
+        "satooshi/php-coveralls": "dev-master"
+    },
+    "license": "MIT Licence",
+    "authors": [
+        {
+            "name": "Wojtek Zalewski",
+            "email": "wojtek@neverbland.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-0": {
+            "Wtk\\Response": "src/",
+            "Wtk\\Response\\Tests": "tests/"
+        }
+    }
+}
