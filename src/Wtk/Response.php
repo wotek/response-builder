@@ -36,6 +36,8 @@ class Response implements ResponseInterface
      */
     use HasPrototypeTrait;
 
+    protected $version = '1.0';
+
     /**
      * Does response has serializer.
      *

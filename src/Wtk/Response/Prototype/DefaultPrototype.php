@@ -11,6 +11,9 @@
 
 namespace Wtk\Response\Prototype;
 
+use Wtk\Response\Header\Fields as HeaderFields;
+use Wtk\Response\Body\Fields as BodyFields;
+
 /**
  * Default response prototype.
  *
@@ -18,37 +21,47 @@ namespace Wtk\Response\Prototype;
  */
 class DefaultPrototype implements PrototypeInterface
 {
+
     /**
      * Headers container
      *
-     * @var HeadersBagInterface
+     * @var FieldsInterface
      */
     protected $headers;
 
     /**
      * Body container
      *
-     * @var BodyBagInterface
+     * @var FieldsInterface
      */
     protected $body;
 
     /**
+     *
+     */
+    public function __construct()
+    {
+        $this->headers = new HeaderFields();
+        $this->body = new BodyFields();
+    }
+
+    /**
      * Returns headers container
      *
-     * @return HeadersBagInterface
+     * @return FieldsInterface
      */
     public function getHeaders()
     {
-        return new HeadersBag();
+        return $this->headers;
     }
 
     /**
      * Returns body container
      *
-     * @return BodyBagInterface
+     * @return FieldsInterface
      */
     function getBody()
     {
-        return new BodyBag();
+        return $this->body;
     }
 }

@@ -43,7 +43,7 @@ class JsonFactory extends SerializerAwareFactory implements FactoryInterface
         /**
          * If user specified prototype - use it:
          */
-        if(null !== $prototype) {
+        if (null !== $prototype) {
             $response->setPrototype($prototype);
         }
 

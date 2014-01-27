@@ -19,7 +19,7 @@ use Wtk\Response\Tests\ResponseTestCase;
  *
  * @author Wojtek Zalewski <wojtek@neverbland.com>
  */
-class JsonFactoryTest extends ResponseTestCase
+class JsonSerializerTest extends ResponseTestCase
 {
     /**
      * Returns tested factory.

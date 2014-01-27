@@ -52,7 +52,7 @@ class Factory implements FactoryInterface
      */
     public function register($type, ConcreteFactoryInterface $factory)
     {
-        if(null !== $this->get($type)) {
+        if (null !== $this->get($type)) {
             throw new \RuntimeException(
                 sprintf("Factory for type: %s is already registered.", $type)
             );
@@ -80,7 +80,7 @@ class Factory implements FactoryInterface
          */
         $factory = $this->get($type);
 
-        if(null === $factory) {
+        if (null === $factory) {
             throw new \RuntimeException(
                 sprintf("Factory for type %s not found.", $type)
             );
