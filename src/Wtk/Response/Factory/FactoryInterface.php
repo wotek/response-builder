@@ -1,6 +1,7 @@
 <?php
 /**
  * @package Response
+ * @subpackage Factory
  *
  * @author Wojtek Zalewski <wojtek@neverbland.com>
  *
@@ -20,7 +21,7 @@ use Wtk\Response\Prototype\PrototypeInterface;
 interface FactoryInterface
 {
     /**
-     * Creates response
+     * Creates response instance.
      *
      * @param  PrototypeInterface   $prototype
      *

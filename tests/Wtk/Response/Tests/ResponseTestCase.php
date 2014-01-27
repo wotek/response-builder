@@ -68,4 +68,17 @@ class ResponseTestCase extends \PHPUnit_Framework_TestCase
         ;
     }
 
+    /**
+     * Return mock for serializer interface.
+     */
+    public function getSerializerMock(array $methods = array())
+    {
+        return $this->getMockBuilder(
+                        '\Wtk\Response\Serializer\SerializerInterface'
+                    )
+                    ->setMethods($methods)
+                    ->getMock()
+        ;
+    }
+
 }

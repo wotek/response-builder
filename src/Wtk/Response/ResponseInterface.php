@@ -10,6 +10,9 @@
 
 namespace Wtk\Response;
 
+use Wtk\Response\Prototype\PrototypeInterface;
+use Wtk\Response\Serializer\SerializerInterface;
+
 /**
  * Response interface.
  *
@@ -18,6 +21,20 @@ namespace Wtk\Response;
 interface ResponseInterface
 {
     /**
-     * Dummy.
+     * Set response prototype
+     *
+     * @param  PrototypeInterface $prototype
+     *
+     * @return void
      */
+    function setPrototype(PrototypeInterface $prototype = null);
+
+    /**
+     * Set response serializer
+     *
+     * @param  SerializerInterface $serializer
+     *
+     * @return void
+     */
+    function setSerializer(SerializerInterface $serializer = null);
 }

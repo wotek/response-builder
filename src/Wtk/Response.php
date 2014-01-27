@@ -8,7 +8,15 @@
  * @license MIT
  */
 
-namespace Wtk\Response;
+namespace Wtk;
+
+use Wtk\Response\ResponseInterface;
+
+use Wtk\Response\Prototype\PrototypeInterface;
+use Wtk\Response\Prototype\HasPrototypeTrait;
+
+use Wtk\Response\Serializer\SerializerInterface;
+use Wtk\Response\Serializer\HasSerializerTrait;
 
 /**
  * Response class.
@@ -17,7 +25,35 @@ namespace Wtk\Response;
  */
 class Response implements ResponseInterface
 {
+
     /**
-     * Dummy
+     * Supports serialize existence.
      */
+    use HasSerializerTrait;
+
+    /**
+     * Supports serialize existence.
+     */
+    use HasPrototypeTrait;
+
+    /**
+     * Does response has serializer.
+     *
+     * @return boolean
+     */
+    protected function hasSerializer()
+    {
+        return null !== $this->serializer;
+    }
+
+    /**
+     * Does response has prototype.
+     *
+     * @return boolean
+     */
+    protected function hasPrototype()
+    {
+        return null !== $this->prototype;
+    }
+
 }

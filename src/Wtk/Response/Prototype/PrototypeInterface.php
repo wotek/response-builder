@@ -1,6 +1,7 @@
 <?php
 /**
  * @package Response
+ * @subpackage Prototype
  *
  * @author Wojtek Zalewski <wojtek@neverbland.com>
  *
@@ -17,7 +18,6 @@ namespace Wtk\Response\Prototype;
  */
 interface PrototypeInterface
 {
-    /**
-     * Dummy
-     */
+    function getHeaders();
+    function getBody();
 }
