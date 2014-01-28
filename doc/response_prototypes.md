@@ -27,12 +27,10 @@ class DefaultPrototype implements PrototypeInterface
     }
 }
 ```
-
-Default prototype is actually scaffolding, it did not define any fields.  
+Default prototype is actually scaffolding, it does not define any fields.  
 *How you can extend it?* Here comes Headers and Body Fields.
 
-Fields are predefined Value Objects. For example lets look at header's date field:
-
+Fields are predefined values. For example lets look at header's date field:
 ```php
 class Date extends Simple
 {
@@ -76,15 +74,12 @@ $response->send();
 // or print it:
 echo $response;
 ```
-
 You shoulde get, headers like:
 ```
 HTTP/1.0 200 
 Date : Tue, 28 Jan 2014 21:59:25 GMT
 ```
-
 and response body:
-
 ```json
 {"id":1,"title":"My awesome blog post","timestamp":1390946365}
 ```
