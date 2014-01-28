@@ -83,3 +83,49 @@ and response body:
 ```json
 {"id":1,"title":"My awesome blog post","timestamp":1390946365}
 ```
+
+Lets create APIResponsePrototype which contains pre-defined headers values for our API responses.
+```php
+class APIResponsePrototype
+    extends \Wtk\Response\Prototype\DefaultPrototype
+    implements \Wtk\Response\Prototype\PrototypeInterface
+{
+    public function __construct()
+    {
+        parent::__construct();
+        $this->getHeaders()->add(new \Wtk\Response\Header\Field\Date());
+        $this->getHeaders()->add(
+            new \Wtk\Response\Header\Field\Simple('API-Version', '1.0')
+        );
+        $this->getHeaders()->add(
+            new \Wtk\Response\Header\Field\Simple('Custom-Header', 'Value')
+        );
+
+    }
+}
+```
+Build response using above prototype:
+```php
+// Assuming you've created factory like in example above
+$response = $factory->create('json', new APIResponsePrototype());
+$response->setContent(array(
+    'id' => 1,
+    'title' => 'My awesome blog post',
+    'timestamp' => time(),
+));
+```
+
+When you'll print out created response, you shoulde get headers like:
+```
+HTTP/1.0 200 
+Date : Tue, 28 Jan 2014 22:27:30 GMT
+
+API-Version : 1.0
+
+Custom-Header : Value
+```
+and response body:
+```json
+{"id":1,"title":"My awesome blog post","timestamp":1390946365}
+```
+
