@@ -41,7 +41,18 @@ class DefaultPrototype implements PrototypeInterface
      */
     public function __construct()
     {
+        /**
+         * Headers fields
+         *
+         * @var HeaderFields
+         */
         $this->headers = new HeaderFields();
+
+        /**
+         * Body field or fields
+         *
+         * @var BodyFields
+         */
         $this->body = new BodyFields();
     }
 

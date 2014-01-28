@@ -22,6 +22,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class Fields implements FieldsInterface
 {
+
     /**
      * Fields array collection
      *
@@ -29,14 +30,34 @@ class Fields implements FieldsInterface
      */
     protected $collection;
 
+    /**
+     *
+     */
     public function __construct()
     {
         $this->collection = new ArrayCollection();
     }
 
+    /**
+     * Adds field
+     *
+     * @param  FieldInterface $field
+     *
+     * @return void
+     */
     public function add(FieldInterface $field)
     {
         $this->collection->add($field);
+    }
+
+    /**
+     * Returns fields as an array
+     *
+     * @return array
+     */
+    public function toArray()
+    {
+        return $this->collection->toArray();
     }
 
 }

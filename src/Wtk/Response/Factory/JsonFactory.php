@@ -21,6 +21,9 @@ use Wtk\Response\Prototype\PrototypeInterface;
  */
 class JsonFactory extends SerializerAwareFactory implements FactoryInterface
 {
+    /**
+     * @todo : Allow to have default Response Prototype?
+     */
 
     /**
      * Creates JSON response.

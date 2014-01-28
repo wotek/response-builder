@@ -32,9 +32,19 @@ class Simple implements FieldInterface
      */
     protected $value;
 
+    /**
+     *
+     * @param  string     $name
+     * @param  mixed      $value
+     */
     public function __construct($name, $value)
     {
         $this->name = $name;
+
+        /**
+         * @todo: is is object, than it has to implement toString method
+         * We have to check for it now.
+         */
         $this->value = $value;
     }
 
@@ -48,19 +58,14 @@ class Simple implements FieldInterface
         return $this->name;
     }
 
+    /**
+     * Returns header field value
+     *
+     * @return string
+     */
     public function getValue()
     {
-        /**
-         * @todo: is is object, than it has to implement toString method
-         */
         return $this->value;
     }
 
-    function __toString()
-    {
-        /**
-         * @todo: Parse it to fit http specific format
-         */
-        return $this->name .' : ' . $this->value;
-    }
 }

@@ -18,6 +18,8 @@ use Wtk\Response\Prototype\HasPrototypeTrait;
 use Wtk\Response\Serializer\SerializerInterface;
 use Wtk\Response\Serializer\HasSerializerTrait;
 
+use Wtk\Response\Http\ResponseTrait as IsHttpResponse;
+
 /**
  * Response class.
  *
@@ -25,6 +27,11 @@ use Wtk\Response\Serializer\HasSerializerTrait;
  */
 class Response implements ResponseInterface
 {
+
+    /**
+     * Trait with HTTP specific properties
+     */
+    use IsHttpResponse;
 
     /**
      * Supports serialize existence.
@@ -36,7 +43,33 @@ class Response implements ResponseInterface
      */
     use HasPrototypeTrait;
 
+    /**
+     * Return HTTP protocol version.
+     *
+     * @var string
+     */
     protected $version = '1.0';
+
+    /**
+     * HTTP Response status.
+     *
+     * @var int
+     */
+    protected $status = 200;
+
+    /**
+     * Response headers
+     *
+     * @var array
+     */
+    protected $headers;
+
+    /**
+     * Response content
+     *
+     * @var string
+     */
+    protected $content;
 
     /**
      * Does response has serializer.
@@ -56,6 +89,75 @@ class Response implements ResponseInterface
     protected function hasPrototype()
     {
         return null !== $this->prototype;
+    }
+
+    /**
+     * Sets response content
+     *
+     * @param  string     $content
+     *
+     * @return void
+     */
+    public function setContent($content)
+    {
+        if(true === $this->hasPrototype()) {
+            /**
+             * This will override previously set body elements.
+             * If you want to set specific field use getPrototype
+             * method to access Body Fields container.
+             */
+            $this->getBody()->setContent($content);
+        }
+
+        /**
+         * To be considered.
+         * (Don't really like it, but. Fail fast ain't that bad)
+         *
+         * @todo: We can check for content value. Whether it can be outputted
+         * as string.
+         */
+
+        /**
+         * Set plain content value
+         *
+         * @var mixed
+         */
+        $this->content = $content;
+    }
+
+    /**
+     * Returns response body content.
+     *
+     * @return string
+     */
+    public function getContent()
+    {
+        if(true === $this->hasSerializer()) {
+            return $this->getSerializer()->serialize($this->content);
+        }
+
+        return $this->content;
+    }
+
+    /**
+     * Returns the Response as an HTTP string.
+     *
+     * @return string The Response as an HTTP string
+     */
+    public function __toString()
+    {
+        return
+            sprintf(
+                'HTTP/%s %s %s',
+                $this->getProtocolVersion(),
+                $this->getStatus(),
+                $this->getStatusText()
+            )
+            . "\r\n"
+            . $this->getHeaders()
+            . "\r\n"
+            . $this->getContent()
+        ;
     }
 
 }
