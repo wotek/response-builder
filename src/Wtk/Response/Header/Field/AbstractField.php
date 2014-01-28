@@ -29,7 +29,7 @@ abstract class AbstractField
         /**
          * @todo: Parse it to fit http specific format
          */
-        return $this->name .' : ' . $this->value;
+        return $this->name .': ' . $this->value;
     }
 
     /**
@@ -39,6 +39,9 @@ abstract class AbstractField
      */
     public function __toString()
     {
+        /**
+         * @todo: Re-route to Utils/Stringify
+         */
         return $this->stringify();
     }
 
