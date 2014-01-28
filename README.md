@@ -1,5 +1,7 @@
 Response Builder
 ========
+[![Build Status](https://travis-ci.org/wotek/response-builder.png?branch=master)](https://travis-ci.org/wotek/response-builder)
+[![Coverage Status](https://coveralls.io/repos/wotek/response-builder/badge.png?branch=master)](https://coveralls.io/r/wotek/response-builder?branch=master)
 
 Let's say, you're building an API for you application.
 You need to:
@@ -41,6 +43,7 @@ git clone git@github.com:wotek/response-builder.git .
 * [Creating Factories](doc/creating_factories.md)
 * [Response Prototypes](doc/response_prototypes.md)
 * [Response Serialiers](doc/creating_serializers.md)
+* [Complete Example](doc/complete_example.md)
 * [Howto's](doc/howto.md)
 
 ## License
