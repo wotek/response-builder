@@ -11,7 +11,7 @@ Create an abstract factory:
 $factory = new Factory();
 ```
 
-Next step is to register `JsonFactory` within abstract factory. Concrete Factories have to implement `Wtk\Response\Factory\FactoryInterface`. See [Creating response factory](http://) for more on thatn topic.
+Next step is to register `JsonFactory` within abstract factory. Concrete Factories have to implement `Wtk\Response\Factory\FactoryInterface`. See [creating response factory](docs/creating_factories.md) for more on thatn topic.
 
 `JsonFactory`  is an `SerializerAwareFactory` which has serializer instance attached to it. This serializer is used to serialize response content in this case return an json string.
 
@@ -25,7 +25,7 @@ Next step is to set serializer for this factory.
 
 You can create your own - it just have to implement `\Wtk\Response\Serializer\SerializerInterface` or make for example JMS/Serializer [**link me**] work with it or any other out there for that matter.
 
-For more information about creating your own serializers go to  [Creating response serializers](http://).
+For more information about creating your own serializers go to  [response serializers](docs/creating_serializers.md).
 
 ```php
 /**
@@ -86,4 +86,4 @@ Response body:
 {"id":1,"title":"My awesome blog post","timestamp":1390935625}
 ```
 
-This is really basic API, next step is using response prototypes to save us some time when creating responses.  Go to [Response Prototypes](http://)
+This is really basic API, next step is using prototypes to save us some time when creating responses.  Go to [Response Prototypes](docs/response_prototypes.md) to learn more.
