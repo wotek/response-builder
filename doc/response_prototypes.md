@@ -27,7 +27,7 @@ class DefaultPrototype implements PrototypeInterface
     }
 }
 ```
-Default prototype is actually scaffolding, it does not define any fields.  
+Default prototype is actually scaffolding, it does not define any fields.
 *How you can extend it?* Here comes Headers and Body Fields.
 
 Fields are predefined values. For example lets look at header's date field:
@@ -76,7 +76,7 @@ echo $response;
 ```
 You shoulde get, headers like:
 ```
-HTTP/1.0 200 
+HTTP/1.0 200
 Date : Tue, 28 Jan 2014 21:59:25 GMT
 ```
 and response body:
@@ -119,7 +119,7 @@ $response->setContent(array(
 
 When you'll print out created response, you shoulde get headers like:
 ```
-HTTP/1.0 200 
+HTTP/1.0 200
 Date: Tue, 28 Jan 2014 22:27:30 GMT
 API-Version: 1.0
 Custom-Header: Value
@@ -128,4 +128,22 @@ and response body:
 ```json
 {"id":1,"title":"My awesome blog post","timestamp":1390946365}
 ```
+
+Prototype can define up front body format. We are going to return API responses in JSON format and we would like to define in already. Lets skip headers definition and get to body - again lets create a prototype. (remember - all of this can be done step by step)
+
+
+
+
+## Documentation
+
+* [Installation](doc/installation.md)
+* [Usage](doc/usage.md)
+* [Creating Factories](doc/creating_factories.md)
+* Response Prototypes
+* [Response Serialiers](doc/creating_serializers.md)
+* [Complete Example](doc/complete_example.md)
+* [Howto's](doc/howto.md)
+
+@todo: Write up base HTTPResponsePrototype -> defaults used everywhere
+@todo: Show example RestAPIResponsePrototype -> the one we are going to use
 

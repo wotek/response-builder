@@ -42,7 +42,7 @@ And finally register it:
 $factory->register('json', $json_factory);
 ```
 
-Most of the code above usally is done by Dependency Injection container. 
+Most of the code above usally is done by Dependency Injection container.
 For integration examples with few Dependency Injection containers out there look in `/example` folder.
 
 Lets create response object:
@@ -61,7 +61,7 @@ $response->setStatusText('Lets say, we found entity you have asked for');
 // Set content
 $response->setContent(array(
 	'id' => 1,
-    'title' => 'My awesome blog post', 
+    'title' => 'My awesome blog post',
     'timestamp' => time(),
 ));
 
@@ -87,3 +87,13 @@ Response body:
 ```
 
 This is really basic API, next step is using prototypes to save us some time when creating responses.  Go to [Response Prototypes](response_prototypes.md) to learn more.
+
+## Documentation
+
+* [Installation](doc/installation.md)
+* Usage
+* [Creating Factories](doc/creating_factories.md)
+* [Response Prototypes](doc/response_prototypes.md)
+* [Response Serialiers](doc/creating_serializers.md)
+* [Complete Example](doc/complete_example.md)
+* [Howto's](doc/howto.md)
