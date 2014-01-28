@@ -16,7 +16,7 @@ namespace Wtk\Response\Header\Field;
  *
  * @author Wojtek Zalewski <wojtek@neverbland.com>
  */
-class Simple implements FieldInterface
+class Simple extends AbstractField implements FieldInterface
 {
     /**
      * Field name

@@ -21,6 +21,7 @@ class Date extends Simple
     public function __construct()
     {
         $this->name = 'Date';
-        $this->value = new \DateTime(null, new \DateTimeZone('UTC'));
+        $this->value = (new \DateTime(null, new \DateTimeZone('UTC')))
+                        ->format('D, d M Y H:i:s').' GMT';
     }
 }

@@ -72,6 +72,13 @@ class Response implements ResponseInterface
     protected $content;
 
     /**
+     * Response status text
+     *
+     * @var string
+     */
+    protected $status_text;
+
+    /**
      * Does response has serializer.
      *
      * @return boolean
@@ -106,7 +113,7 @@ class Response implements ResponseInterface
              * If you want to set specific field use getPrototype
              * method to access Body Fields container.
              */
-            $this->getBody()->setContent($content);
+            $this->getPrototype()->getBody()->setContent($content);
         }
 
         /**
@@ -140,12 +147,31 @@ class Response implements ResponseInterface
     }
 
     /**
+     * Returns response headers container.
+     *
+     * @return FieldsInterface
+     */
+    public function getHeaders()
+    {
+        if(true === $this->hasPrototype()) {
+            return $this->getPrototype()->getHeaders();
+        }
+
+        return $this->getHeaders();
+    }
+
+    /**
      * Returns the Response as an HTTP string.
      *
      * @return string The Response as an HTTP string
      */
     public function __toString()
     {
+        /**
+         * 1. HTTP/Version Code Message
+         * 2. Headers
+         * 3. Body
+         */
         return
             sprintf(
                 'HTTP/%s %s %s',

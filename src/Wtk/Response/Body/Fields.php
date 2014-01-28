@@ -12,6 +12,7 @@
 namespace Wtk\Response\Body;
 
 use Wtk\Response\Body\Field\FieldInterface;
+use Wtk\Response\Body\Field\Simple;
 
 use Doctrine\Common\Collections\ArrayCollection;
 
@@ -60,4 +61,9 @@ class Fields implements FieldsInterface
         return $this->collection->toArray();
     }
 
+    public function setContent($content)
+    {
+        $field = new Simple('content', $content);
+        $this->add($field);
+    }
 }

@@ -49,6 +49,15 @@ abstract class AbstractField
      */
     public function toArray()
     {
+        /**
+         * Consider format:
+         * array (
+         *  'name' => $name,
+         *  'value' => $value,
+         * )
+         *
+         * @var array
+         */
         return array(
             $this->name => $this->value,
         );
