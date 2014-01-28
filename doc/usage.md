@@ -1,5 +1,7 @@
 # Usage
 
+### Create factory and response step by step
+
 Create an abstract factory:
 
 ```
@@ -21,7 +23,7 @@ $json_factory = new JsonFactory();
 ```
 Next step is to set serializer for this factory.
 
-You can create your own - it just have to implement `\Wtk\Response\Serializer\SerializerInterface` or make for example JMS/Serializer [link me] work with it or any other out there for that matter.
+You can create your own - it just have to implement `\Wtk\Response\Serializer\SerializerInterface` or make for example JMS/Serializer [**link me**] work with it or any other out there for that matter.
 
 ```
 /**
@@ -48,5 +50,23 @@ Lets create response object:
  */
 $response = $factory->create('json');
 
+// Set status code, by default it is 200
+$response->setStatus(200);
+
+// Set status text
+$response->setStatusText('Lets say, we found entity you have asked for');
+
+// Set content
+$response->setContent(array(
+	'id' => 1,
+    'title' => 'My awesome blog post', 
+    timestamp' => now()
+);
+
+// ... and finally send response back to browser
+$response->send();
+
+// or if you want to see how it would look just print it
+echo $response
 ```
 
