@@ -90,10 +90,10 @@ This is really basic API, next step is using prototypes to save us some time whe
 
 ## Documentation
 
-* [Installation](doc/installation.md)
+* [Installation](installation.md)
 * Usage
-* [Creating Factories](doc/creating_factories.md)
-* [Response Prototypes](doc/response_prototypes.md)
-* [Response Serialiers](doc/creating_serializers.md)
-* [Complete Example](doc/complete_example.md)
-* [Howto's](doc/howto.md)
+* [Creating Factories](creating_factories.md)
+* [Response Prototypes](response_prototypes.md)
+* [Response Serialiers](creating_serializers.md)
+* [Complete Example](complete_example.md)
+* [Howto's](howto.md)

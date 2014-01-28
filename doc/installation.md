@@ -23,3 +23,13 @@ If you're not fan of composer. You can just *clone* repository.
 # Clones repository to settings folder
 git clone git@github.com:wotek/response-builder.git .
 ```
+
+## Documentation
+
+* Installation
+* [Usage](usage.md)
+* [Creating Factories](creating_factories.md)
+* [Response Prototypes](response_prototypes.md)
+* [Response Serialiers](creating_serializers.md)
+* [Complete Example](complete_example.md)
+* [Howto's](howto.md)

@@ -136,13 +136,13 @@ Prototype can define up front body format. We are going to return API responses 
 
 ## Documentation
 
-* [Installation](doc/installation.md)
-* [Usage](doc/usage.md)
-* [Creating Factories](doc/creating_factories.md)
+* [Installation](installation.md)
+* [Usage](usage.md)
+* [Creating Factories](creating_factories.md)
 * Response Prototypes
-* [Response Serialiers](doc/creating_serializers.md)
-* [Complete Example](doc/complete_example.md)
-* [Howto's](doc/howto.md)
+* [Response Serialiers](creating_serializers.md)
+* [Complete Example](complete_example.md)
+* [Howto's](howto.md)
 
 @todo: Write up base HTTPResponsePrototype -> defaults used everywhere
 @todo: Show example RestAPIResponsePrototype -> the one we are going to use
