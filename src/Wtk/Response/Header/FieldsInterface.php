@@ -11,6 +11,8 @@
 
 namespace Wtk\Response\Header;
 
+use Wtk\Response\Header\Field\FieldInterface;
+
 /**
  * Response headers fields container.
  *
@@ -18,4 +20,28 @@ namespace Wtk\Response\Header;
  */
 interface FieldsInterface
 {
+
+    /**
+     * Adds field
+     *
+     * @param  FieldInterface $field
+     *
+     * @return void
+     */
+    function add(FieldInterface $field);
+
+    /**
+     * Returns fields as an array
+     *
+     * @return array
+     */
+    function toArray();
+
+    /**
+     * Returns headers collection as string.
+     *
+     * @return string
+     */
+    function __toString();
+
 }

@@ -3,15 +3,10 @@ Response Builder
 
 |Build Status| |Coverage Status|
 
-Let's say, you're building an API for you application. You need to:
-
-* Return responses in few formats
-
-* Want to have ability to version reponse body schema
-
-* have ability to version reponse headers schema
-
-* have simple Response Factory API and use predefined responses
+Let's say, you're building an API for you application. You need to: \*
+Return responses in few formats \* Want to have ability to version
+reponse body schema \* have ability to version reponse headers schema \*
+have simple Response Factory API and use predefined responses
 
 Installation
 ------------
@@ -49,11 +44,6 @@ If you're not fan of composer. You can just *clone* repository.
 Documentation
 -------------
 
-Contents:
-
-.. toctree::
-   :maxdepth: 2
-
 -  `Installation <doc/installation.md>`__
 -  `Usage <doc/usage.md>`__
 -  `Creating Factories <doc/creating_factories.md>`__
@@ -61,10 +51,6 @@ Contents:
 -  `Response Serialiers <doc/creating_serializers.md>`__
 -  `Complete Example <doc/complete_example.md>`__
 -  `Howto's <doc/howto.md>`__
-
-Or search through docs:
-
-:ref:`search`
 
 License
 -------
