@@ -48,7 +48,19 @@ class Fields implements FieldsInterface
      */
     public function add(FieldInterface $field)
     {
-        $this->collection->add($field);
+        $this->collection->set($field->getName(), $field);
+    }
+
+    /**
+     * Returns field
+     *
+     * @param  string     $field
+     *
+     * @return FieldInterface
+     */
+    public function get($field)
+    {
+        return $this->collection->get($field);
     }
 
     /**

@@ -20,14 +20,15 @@ class JsonSerializer implements SerializerInterface
 {
 
     /**
-     * Serialize given output
+     * Serialize to JSON given input
      *
-     * @param  mixed     $input
+     * @param  JsonSerializable  $input
      *
      * @return string
      */
-    function serialize($input)
+    function serialize(\JsonSerializable $input)
     {
+        var_dump($input);die;
         return json_encode($input);
     }
 

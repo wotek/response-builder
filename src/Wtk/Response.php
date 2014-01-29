@@ -39,7 +39,7 @@ class Response implements ResponseInterface
     use HasSerializerTrait;
 
     /**
-     * Supports serialize existence.
+     * Supports prototype existence.
      */
     use HasPrototypeTrait;
 
@@ -140,7 +140,9 @@ class Response implements ResponseInterface
     public function getContent()
     {
         if(true === $this->hasSerializer()) {
-            return $this->getSerializer()->serialize($this->content);
+            return $this->getSerializer()->serialize(
+                $this->getPrototype()->getBody()
+            );
         }
 
         return $this->content;

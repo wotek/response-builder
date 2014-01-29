@@ -20,12 +20,12 @@ interface SerializerInterface
 {
 
     /**
-     * Serialize given output
+     * Serialize given input
      *
-     * @param  mixed     $input
+     * @param  JsonSerializable  $input
      *
      * @return string
      */
-    function serialize($input);
+    function serialize(\JsonSerializable $input);
 
 }

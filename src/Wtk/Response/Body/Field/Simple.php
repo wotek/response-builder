@@ -63,6 +63,11 @@ class Simple implements FieldInterface
         return $this->value;
     }
 
+    public function set($value)
+    {
+        $this->value = $value;
+    }
+
     /**
      * Returns as an array
      *
