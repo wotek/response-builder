@@ -18,7 +18,33 @@ namespace Wtk\Response\Header\Field;
  */
 interface FieldInterface
 {
+
+    /**
+     * Returns field name
+     *
+     * @return string
+     */
     function getName();
+
+    /**
+     * Returns header field value
+     *
+     * @return string
+     */
     function getValue();
+
+    /**
+     * Returns as string
+     *
+     * @return string
+     */
     function __toString();
+
+    /**
+     * Return field as an array
+     *
+     * @return array
+     */
+    function toArray();
+
 }

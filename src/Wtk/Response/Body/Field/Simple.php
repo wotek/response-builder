@@ -17,7 +17,6 @@ namespace Wtk\Response\Body\Field;
  * @author Wojtek Zalewski <wojtek@neverbland.com>
  */
 class Simple implements FieldInterface
-// implements ToArrayInterface
 {
 
     /**

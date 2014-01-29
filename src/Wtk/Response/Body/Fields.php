@@ -21,8 +21,14 @@ use Doctrine\Common\Collections\ArrayCollection;
  *
  * @author Wojtek Zalewski <wojtek@neverbland.com>
  */
-class Fields implements FieldsInterface, \IteratorAggregate
+class Fields implements FieldsInterface
 {
+
+    /**
+     * @todo: Audit code for headers and body fields.
+     * See what can be unified, what abstracted. They might follow
+     * the same interface.
+     */
 
     /**
      * Fields array collection
