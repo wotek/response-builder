@@ -1,7 +1,7 @@
 <?php
 /**
  * @package Response
- * @subpackage Serializer
+ * @subpackage Normalizer
  *
  * @author Wojtek Zalewski <wojtek@neverbland.com>
  *
@@ -9,23 +9,23 @@
  * @license MIT
  */
 
-namespace Wtk\Response\Serializer;
+namespace Wtk\Response\Normalizer;
 
 /**
- * Serializer interface
+ * Normalizer interface.
  *
  * @author Wojtek Zalewski <wojtek@neverbland.com>
  */
-interface SerializerInterface
+interface NormalizerInterface
 {
 
     /**
-     * Serialize given input
+     * Normalizes given input
      *
-     * @param  mixed  $input
+     * @param  mixed     $input
      *
-     * @return string
+     * @return array
      */
-    function serialize($input);
+    function normalize($input);
 
 }

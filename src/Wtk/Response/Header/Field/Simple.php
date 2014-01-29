@@ -42,7 +42,8 @@ class Simple extends AbstractField implements FieldInterface
         $this->name = $name;
 
         /**
-         * @todo: is is object, than it has to implement toString method
+         * @todo: is is object, than it has to
+         * implement toString method
          * We have to check for it now.
          */
         $this->value = $value;

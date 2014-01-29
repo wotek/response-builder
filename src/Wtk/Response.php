@@ -79,6 +79,13 @@ class Response implements ResponseInterface
     protected $status_text;
 
     /**
+     * Serializer instance
+     *
+     * @var SerializerInterface
+     */
+    protected $serializer;
+
+    /**
      * Does response has serializer.
      *
      * @return boolean
@@ -139,10 +146,8 @@ class Response implements ResponseInterface
      */
     public function getContent()
     {
-        if(true === $this->hasSerializer()) {
-            return $this->getSerializer()->serialize(
-                $this->getPrototype()->getBody()
-            );
+        if(true === $this->hasPrototype()) {
+            return $this->getPrototype()->getBody();
         }
 
         return $this->content;
@@ -163,6 +168,24 @@ class Response implements ResponseInterface
     }
 
     /**
+     * Prepares response headers and body.
+     *
+     * @return array
+     */
+    protected function prepare()
+    {
+        $headers = $this->getHeaders();
+
+        $body = $this->getContent();
+
+        if(true === $this->hasSerializer()) {
+            $body = $this->getSerializer()->serialize($body);
+        }
+
+        return array($headers, $body);
+    }
+
+    /**
      * Returns the Response as an HTTP string.
      *
      * @return string The Response as an HTTP string
@@ -174,6 +197,8 @@ class Response implements ResponseInterface
          * 2. Headers
          * 3. Body
          */
+        list($headers, $body) = $this->prepare();
+
         return
             sprintf(
                 'HTTP/%s %s %s',
@@ -182,9 +207,9 @@ class Response implements ResponseInterface
                 $this->getStatusText()
             )
             . "\r\n"
-            . $this->getHeaders()
+            . $headers
             . "\r\n"
-            . $this->getContent()
+            . $body
         ;
     }
 

@@ -22,13 +22,6 @@ trait HasSerializerTrait
 {
 
     /**
-     * Serializer instance.
-     *
-     * @var SerializerInterface
-     */
-    protected $serializer;
-
-    /**
      * Set serializer instance.
      *
      * @param  SerializerInterface $serializer

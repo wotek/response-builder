@@ -1,7 +1,7 @@
 <?php
 /**
  * @package Response
- * @subpackage Serializer
+ * @subpackage Encoder
  *
  * @author Wojtek Zalewski <wojtek@neverbland.com>
  *
@@ -9,23 +9,23 @@
  * @license MIT
  */
 
-namespace Wtk\Response\Serializer;
+namespace Wtk\Response\Encoder;
 
 /**
- * Serializer interface
+ * Encoder interface.
  *
  * @author Wojtek Zalewski <wojtek@neverbland.com>
  */
-interface SerializerInterface
+interface EncoderInterface
 {
 
     /**
-     * Serialize given input
+     * Encodes given input
      *
-     * @param  mixed  $input
+     * @param  array     $input
      *
      * @return string
      */
-    function serialize($input);
+    function encode($input);
 
 }

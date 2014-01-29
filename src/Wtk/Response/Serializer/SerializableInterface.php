@@ -12,24 +12,20 @@
 namespace Wtk\Response\Serializer;
 
 /**
- * Really basic JSON serializer.
+ * Serializer interface
  *
  * @author Wojtek Zalewski <wojtek@neverbland.com>
  */
-class JsonSerializer implements SerializerInterface
+interface SerializableInterface
 {
 
     /**
-     * Serialize to JSON given input
+     * Serialize self using given $serializer
      *
-     * @param  JsonSerializable  $input
+     * @param  SerializerInterface  $serializer
      *
      * @return string
      */
-    function serialize(\JsonSerializable $input)
-    {
-        var_dump($input);die;
-        return json_encode($input);
-    }
+    function serialize(SerializerInterface $serializer);
 
 }

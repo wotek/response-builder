@@ -22,6 +22,10 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class Fields implements FieldsInterface
 {
+    /**
+     * @idea: Fields can extend ArrayCollection for tha t matter
+     * Do it when tested, and see whether it breaks stuff or not.
+     */
 
     /**
      * Fields array collection
@@ -64,7 +68,10 @@ class Fields implements FieldsInterface
     }
 
     /**
-     * Returns headers collection as string
+     * Returns headers collection as string.
+     *
+     * @todo: Should implement SerializableInterface
+     * So we can call serializer on it. Without this freaky __toString method.
      *
      * @return string
      */

@@ -25,13 +25,19 @@ Next step is to set serializer for this factory.
 
 You can create your own - it just have to implement `\Wtk\Response\Serializer\SerializerInterface` or make for example JMS/Serializer [**link me**] work with it or any other out there for that matter.
 
-For more information about creating your own serializers go to  [response serializers](creating_serializers.md).
+Serializer uses `NormalizerInstance` and `EncoderInstance` for the job.
+Normalizes turn **objects** into array's, and encoders are responsible to take
+that array and turn it into desired format.
+
+For more information about creating your own serializers go to [response serializers](creating_serializers.md).
 
 ```php
 /**
  * @var Wtk\Response\Serializer\SerializerInterface
  */
-$serializer = new  JsonSerializer();
+$normalizer = new FieldsNormalizer();
+$encoder = new JsonEncoder();
+$serializer = new Serializer($normalizer, $encoder);
 
 $json_factory->setSerializer($serializer);
 ```

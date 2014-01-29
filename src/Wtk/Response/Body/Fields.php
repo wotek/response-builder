@@ -21,7 +21,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  *
  * @author Wojtek Zalewski <wojtek@neverbland.com>
  */
-class Fields implements FieldsInterface
+class Fields implements FieldsInterface, \IteratorAggregate
 {
 
     /**
@@ -73,9 +73,31 @@ class Fields implements FieldsInterface
         return $this->collection->toArray();
     }
 
+    /**
+     * Required by interface IteratorAggregate.
+     *
+     * {@inheritDoc}
+     */
+    public function getIterator()
+    {
+        return $this->collection->getIterator();
+    }
+
+    /**
+     * Method for single content.
+     *
+     * @todo: Rethink it.
+     *
+     * @param  mixed     $content
+     *
+     * @return void
+     */
     public function setContent($content)
     {
         $field = new Simple('content', $content);
+
         $this->add($field);
     }
+
+
 }

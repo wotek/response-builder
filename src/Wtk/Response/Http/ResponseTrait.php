@@ -13,6 +13,8 @@ namespace Wtk\Response\Http;
 
 use Wtk\Response\Header\Fields as HeaderFields;
 
+use Wtk\Response\Http\Codes;
+
 /**
  * HTTP specific response parts
  *
@@ -88,7 +90,14 @@ trait ResponseTrait
      */
     public function getStatusText()
     {
-        return $this->status_text;
+        if(null !== $this->status_text) {
+            return $this->status_text;
+        }
+
+        /**
+         * Try to guess from status code:
+         */
+        return Codes::getText($this->getStatus(), 'Not specified');
     }
 
     /**

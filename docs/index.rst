@@ -3,10 +3,15 @@ Response Builder
 
 |Build Status| |Coverage Status|
 
-Let's say, you're building an API for you application. You need to: \*
-Return responses in few formats \* Want to have ability to version
-reponse body schema \* have ability to version reponse headers schema \*
-have simple Response Factory API and use predefined responses
+Let's say, you're building an API for you application. You need to:
+
+* Return responses in few formats
+
+* Want to have ability to version reponse body schema
+
+* have ability to version reponse headers schema
+
+* have simple Response Factory API and use predefined responses
 
 Installation
 ------------

@@ -52,7 +52,9 @@ Lets build response with that field included, step by step:
 // Setup factory:
 $factory = new Factory();
 $json_factory = new JsonFactory();
-$serializer = new  JsonSerializer();
+$normalizer = new FieldsNormalizer();
+$encoder = new JsonEncoder();
+$serializer = new Serializer($normalizer, $encoder);
 $json_factory->setSerializer($serializer);
 $factory->register('json', $json_factory);
 
@@ -131,8 +133,67 @@ and response body:
 
 Prototype can define up front body format. We are going to return API responses in JSON format and we would like to define in already. Lets skip headers definition and get to body - again lets create a prototype. (remember - all of this can be done step by step)
 
+```php
+class APIResponsePrototype
+    extends \Wtk\Response\Prototype\DefaultPrototype
+    implements \Wtk\Response\Prototype\PrototypeInterface
+{
+    public function __construct()
+    {
+        parent::__construct();
 
+        /* we've skipped headers part */
 
+        $this->getBody()->add(
+            new \Wtk\Response\Body\Field\Code(200)
+        );
+
+        $this->getBody()->add(
+            new \Wtk\Response\Body\Field\Errors(array())
+        );
+
+        $this->getBody()->add(
+            new \Wtk\Response\Body\Field\Message(
+                'Your request has completed succesfully'
+            )
+        );
+
+        $this->getBody()->add(
+            // Empty for now, will be filled in later
+            new \Wtk\Response\Body\Field\Response()
+        );
+    }
+
+    /**
+     * Proxy method to concrete field object.
+     * Feel free to add more.
+     *
+     * @param  mixed     $content
+     */
+    public function setContent($content)
+    {
+        $field = $this->getBody()->get('response');
+        $field->setValue($content);
+    }
+}
+```
+
+Create response using this prototype:
+
+```php
+$response = $factory->create('json', new APIResponsePrototype());
+// Set response content using proxy method from prototype
+$response->getPrototype()->setContent(array(
+    'id' => 1,
+    'title' => 'My awesome blog post',
+    'timestamp' => time(),
+));
+```
+
+When you'll print out created response body should contain:
+```json
+{"code":200,"errors":[],"message":"Your request has completed succesfully","response":{"id":1,"title":"My awesome blog post","timestamp":1391011738}}
+```
 
 ## Documentation
 

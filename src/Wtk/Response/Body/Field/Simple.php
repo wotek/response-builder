@@ -17,7 +17,7 @@ namespace Wtk\Response\Body\Field;
  * @author Wojtek Zalewski <wojtek@neverbland.com>
  */
 class Simple implements FieldInterface
-// implements SerializableToArrayInterface
+// implements ToArrayInterface
 {
 
     /**
@@ -55,15 +55,22 @@ class Simple implements FieldInterface
         return $this->name;
     }
 
+    /**
+     * Returns field value
+     *
+     * @return mixed
+     */
     public function getValue()
     {
-        /**
-         * @todo: if is is object, than it has to implement toString method
-         */
         return $this->value;
     }
 
-    public function set($value)
+    /**
+     * Sets field value
+     *
+     * @param  mixed     $value
+     */
+    public function setValue($value)
     {
         $this->value = $value;
     }

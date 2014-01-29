@@ -68,6 +68,26 @@ class ResponseTestCase extends \PHPUnit_Framework_TestCase
         ;
     }
 
+    public function getNormalizerMock(array $methods = array())
+    {
+        return $this->getMockBuilder(
+                        '\Wtk\Response\Normalizer\NormalizerInterface'
+                    )
+                    ->setMethods($methods)
+                    ->getMock()
+        ;
+    }
+
+    public function getEncoderMock(array $methods = array())
+    {
+        return $this->getMockBuilder(
+                        '\Wtk\Response\Encoder\EncoderInterface'
+                    )
+                    ->setMethods($methods)
+                    ->getMock()
+        ;
+    }
+
     /**
      * Return mock for serializer interface.
      */

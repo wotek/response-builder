@@ -24,4 +24,11 @@ class SerializerAwareFactory
      * Supports serialize existence.
      */
     use HasSerializerTrait;
+
+    /**
+     * Serializer instance
+     *
+     * @var SerializerInterface
+     */
+    protected $serializer;
 }
