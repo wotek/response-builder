@@ -192,7 +192,16 @@ $response->getPrototype()->setContent(array(
 
 When you'll print out created response body should contain:
 ```json
-{"code":200,"errors":[],"message":"Your request has completed succesfully","response":{"id":1,"title":"My awesome blog post","timestamp":1391011738}}
+{
+    "code":200,
+    "errors":[],
+    "message":"Your request has completed succesfully",
+    "response":{
+        "id":1,
+        "title":"My awesome blog post",
+        "timestamp":1391011738
+    }
+}
 ```
 
 ## Documentation
