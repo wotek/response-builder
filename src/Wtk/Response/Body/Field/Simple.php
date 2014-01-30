@@ -70,7 +70,8 @@ class Simple implements FieldInterface
      * @param  mixed     $value
      */
     public function setValue($value)
-    {
+    {   
+        // @todo: Check what value is set, validate it.
         $this->value = $value;
     }
 
@@ -81,8 +82,14 @@ class Simple implements FieldInterface
      */
     public function toArray()
     {
+        $value = $this->value;
+
+        if(is_object($value)) {
+            $value = $value->toArray();
+        }
+
         return array(
-            $this->name => $this->value,
+            $this->name => $value,
         );
     }
 

@@ -28,7 +28,7 @@ class FieldsNormalizer implements NormalizerInterface
      *
      * @return array
      */
-    public function normalize($input)
+    public function normalize(/* FieldsInterface */ $input)
     {
         if(!$input instanceof FieldsInterface) {
             throw new \RuntimeException(
@@ -40,9 +40,11 @@ class FieldsNormalizer implements NormalizerInterface
 
         $result = array();
 
-        foreach ($iterator as $key => $value) {
-            $result[$key] = $value->getValue();
+        foreach ($iterator as $fieldname => $field) {
+            $result += $field->toArray();
         }
+
+        var_dump($result);die;
 
         return $result;
     }
