@@ -44,8 +44,6 @@ class FieldsNormalizer implements NormalizerInterface
             $result += $field->toArray();
         }
 
-        var_dump($result);die;
-
         return $result;
     }
 

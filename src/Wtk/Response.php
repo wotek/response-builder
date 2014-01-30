@@ -123,20 +123,25 @@ class Response implements ResponseInterface
             $this->getPrototype()->getBody()->setContent($content);
         }
 
-        /**
-         * To be considered.
-         * (Don't really like it, but. Fail fast ain't that bad)
-         *
-         * @todo: We can check for content value. Whether it can be outputted
-         * as string.
-         */
+        if (null !== $content 
+            && !is_string($content) 
+            && !is_numeric($content) 
+            && !is_callable(array($content, '__toString'))
+        ) {
+            throw new \UnexpectedValueException(
+                sprintf(
+                    'The Response content must be a string or object implementing __toString(), "%s" given.',
+                     gettype($content)
+                )
+            );
+        }
 
         /**
          * Set plain content value
          *
          * @var mixed
          */
-        $this->content = $content;
+        $this->content = (string) $content;
     }
 
     /**

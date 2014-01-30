@@ -84,7 +84,7 @@ class Fields implements FieldsInterface
          *
          * @see https://github.com/symfony/symfony/blob/master/src/Symfony/Component/HttpFoundation/Response.php#L267
          *
-         * for common fixes and problems here.
+         * look ^^ link ^^ for common fixes and problems here.
          */
     }
 
