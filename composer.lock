@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "93011383c7fd1a17dcacef35f7ad3d01",
+    "hash": "c7f8fcd7697979a45e03bfa70cc0fb0f",
     "packages": [
         {
             "name": "doctrine/collections",
@@ -121,56 +121,6 @@
                 "utils"
             ],
             "time": "2014-01-02 00:58:09"
-        },
-        {
-            "name": "symfony/http-foundation",
-            "version": "dev-master",
-            "target-dir": "Symfony/Component/HttpFoundation",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/HttpFoundation.git",
-                "reference": "15b10d4638fa232b2f9373d51213419ab511e816"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/15b10d4638fa232b2f9373d51213419ab511e816",
-                "reference": "15b10d4638fa232b2f9373d51213419ab511e816",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.5-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Symfony\\Component\\HttpFoundation\\": ""
-                },
-                "classmap": [
-                    "Symfony/Component/HttpFoundation/Resources/stubs"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "http://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony HttpFoundation Component",
-            "homepage": "http://symfony.com",
-            "time": "2014-01-07 13:29:57"
         }
     ],
     "packages-dev": [
@@ -180,12 +130,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "028195b32bb2e096b168baebe07c704473db81d4"
+                "reference": "dce090bdeeea701bb95f68f2ea66b4e532c68207"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/028195b32bb2e096b168baebe07c704473db81d4",
-                "reference": "028195b32bb2e096b168baebe07c704473db81d4",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/dce090bdeeea701bb95f68f2ea66b4e532c68207",
+                "reference": "dce090bdeeea701bb95f68f2ea66b4e532c68207",
                 "shasum": ""
             },
             "require": {
@@ -264,7 +214,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2014-01-23 18:29:07"
+            "time": "2014-01-29 18:20:08"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -272,16 +222,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "832f43552c32e6754d53c2b02439f72afd921780"
+                "reference": "9eb32fb88194ce7764d4e8f988aae42856d48572"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/832f43552c32e6754d53c2b02439f72afd921780",
-                "reference": "832f43552c32e6754d53c2b02439f72afd921780",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/9eb32fb88194ce7764d4e8f988aae42856d48572",
+                "reference": "9eb32fb88194ce7764d4e8f988aae42856d48572",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.4.7",
+                "php": ">=5.3.3",
                 "phpunit/php-file-iterator": ">=1.3.0",
                 "phpunit/php-text-template": ">=1.1.1",
                 "phpunit/php-token-stream": ">=1.1.3",
@@ -327,7 +277,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-01-27 11:57:50"
+            "time": "2014-01-30 09:26:53"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -518,12 +468,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "50b1b1203104553bf98fbfd80fc1cf6bf9bdbab4"
+                "reference": "8dc1a690344a3f094a321f115f00be6f3c1cc543"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/50b1b1203104553bf98fbfd80fc1cf6bf9bdbab4",
-                "reference": "50b1b1203104553bf98fbfd80fc1cf6bf9bdbab4",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/8dc1a690344a3f094a321f115f00be6f3c1cc543",
+                "reference": "8dc1a690344a3f094a321f115f00be6f3c1cc543",
                 "shasum": ""
             },
             "require": {
@@ -531,7 +481,7 @@
                 "ext-pcre": "*",
                 "ext-reflection": "*",
                 "ext-spl": "*",
-                "php": ">=5.4.7",
+                "php": ">=5.3.3",
                 "phpunit/php-code-coverage": "1.4.*@dev",
                 "phpunit/php-file-iterator": ">=1.3.1",
                 "phpunit/php-text-template": ">=1.1.1",
@@ -584,7 +534,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-01-27 11:18:18"
+            "time": "2014-01-30 09:26:16"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -807,16 +757,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/exporter.git",
-                "reference": "1ea51dd3c4c86d5d2d0fdbfd779a277c4c6aadc2"
+                "reference": "c66626bdac66f74f6d3c19dcd7e41ef16f13a249"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/exporter/zipball/1ea51dd3c4c86d5d2d0fdbfd779a277c4c6aadc2",
-                "reference": "1ea51dd3c4c86d5d2d0fdbfd779a277c4c6aadc2",
+                "url": "https://api.github.com/repos/sebastianbergmann/exporter/zipball/c66626bdac66f74f6d3c19dcd7e41ef16f13a249",
+                "reference": "c66626bdac66f74f6d3c19dcd7e41ef16f13a249",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3"
+                "php": ">=5.4.7"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.8.*@dev"
             },
             "type": "library",
             "extra": {
@@ -862,7 +815,7 @@
                 "export",
                 "exporter"
             ],
-            "time": "2013-11-06 09:43:40"
+            "time": "2014-01-30 06:41:03"
         },
         {
             "name": "sebastian/version",
@@ -1203,7 +1156,6 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "symfony/http-foundation": 20,
         "michaldudek/foundation": 20,
         "doctrine/collections": 20,
         "phpunit/phpunit": 20,

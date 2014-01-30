@@ -3,12 +3,10 @@
     "description": "HTTP Response Builder",
     "keywords": ["response", "json", "xml", "builder", "api", "response prototype"],
     "require": {
-        "symfony/http-foundation": "dev-master",
         "michaldudek/foundation": "dev-master",
         "doctrine/collections": "dev-master"
     },
     "require-dev": {
-        "symfony/http-foundation": "dev-master",
         "phpunit/phpunit": "dev-master",
         "satooshi/php-coveralls": "dev-master"
     },
