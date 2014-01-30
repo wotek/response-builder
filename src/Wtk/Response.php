@@ -174,13 +174,24 @@ class Response implements ResponseInterface
      */
     protected function prepare()
     {
-        $headers = $this->getHeaders();
-
         $body = $this->getContent();
 
         if(true === $this->hasSerializer()) {
             $body = $this->getSerializer()->serialize($body);
         }
+
+        /**
+         * @todo: We should have it like:
+         * $this->getHeaders()->prepare();
+         *
+         * There are some parts of headers which need to be
+         * set depending on body. Like content-length etc.
+         *
+         * @see https://github.com/symfony/symfony/blob/master/src/Symfony/Component/HttpFoundation/Response.php#L267
+         *
+         * for common fixes and problems here.
+         */
+        $headers = $this->getHeaders();
 
         return array($headers, $body);
     }

@@ -68,10 +68,33 @@ class Fields implements FieldsInterface
     }
 
     /**
+     * @todo: Should walk through headers set, validate them,
+     *         and do "auto-correct".
+     *
+     * @return void
+     */
+    public function prepare()
+    {
+        /**
+         * @todo: We should have it like:
+         * $this->getHeaders()->prepare();
+         *
+         * There are some parts of headers which need to be
+         * set depending on body. Like content-length etc.
+         *
+         * @see https://github.com/symfony/symfony/blob/master/src/Symfony/Component/HttpFoundation/Response.php#L267
+         *
+         * for common fixes and problems here.
+         */
+    }
+
+    /**
      * Returns headers collection as string.
      *
      * @todo: Should implement SerializableInterface
      * So we can call serializer on it. Without this freaky __toString method.
+     *
+     * This is shit. No time. Have to have working prototype.
      *
      * @return string
      */
@@ -87,7 +110,7 @@ class Fields implements FieldsInterface
         });
 
         /**
-         * Each header in new line
+         * Each header in new line, Use Stringify thingy?
          */
         return implode("\n\r", $collection->toArray());
     }
