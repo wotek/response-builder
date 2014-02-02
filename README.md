@@ -42,7 +42,7 @@ git clone git@github.com:wotek/response-builder.git .
 * [Usage](doc/usage.md)
 * [Creating Factories](doc/creating_factories.md)
 * [Response Prototypes](doc/response_prototypes.md)
-* [Response Serialiers](doc/creating_serializers.md)
+* [Response Serializers](doc/creating_serializers.md)
 * [Complete Example](doc/complete_example.md)
 * [Howto's](doc/howto.md)
 

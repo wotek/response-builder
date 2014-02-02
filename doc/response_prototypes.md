@@ -210,6 +210,6 @@ When you'll print out created response body should contain:
 * [Usage](usage.md)
 * [Creating Factories](creating_factories.md)
 * Response Prototypes
-* [Response Serialiers](creating_serializers.md)
+* [Response Serializers](creating_serializers.md)
 * [Complete Example](complete_example.md)
 * [Howto's](howto.md)

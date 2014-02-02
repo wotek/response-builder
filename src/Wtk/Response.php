@@ -120,12 +120,12 @@ class Response implements ResponseInterface
              * If you want to set specific field use getPrototype
              * method to access Body Fields container.
              */
-            $this->getPrototype()->getBody()->setContent($content);
+            return $this->getPrototype()->getBody()->setContent($content);
         }
 
-        if (null !== $content 
-            && !is_string($content) 
-            && !is_numeric($content) 
+        if (null !== $content
+            && !is_string($content)
+            && !is_numeric($content)
             && !is_callable(array($content, '__toString'))
         ) {
             throw new \UnexpectedValueException(
@@ -199,6 +199,16 @@ class Response implements ResponseInterface
         $headers = $this->getHeaders();
 
         return array($headers, $body);
+    }
+
+    /**
+     * Send response to browser
+     *
+     * @return void
+     */
+    public function send()
+    {
+
     }
 
     /**

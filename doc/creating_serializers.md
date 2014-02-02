@@ -5,7 +5,7 @@ Serializers are responsible for turning objects into specific format (XML, JSON,
 
 At the moment library comes with `FieldsNormalizer` which normalizes body fields collection to an array which then is turned into json string by `JsonEncoder`.
 
-> There is popular [JMS Serializer](https://github.com/schmittjoh/serializer) you can use for serializing data responses. It is really complex solution - worth checking it out. For exmaple intergration with response-builder check `exmaple` folder.
+> There is popular [JMS Serializer](https://github.com/schmittjoh/serializer) you can use for serializing data responses. It is really complex solution - worth checking it out. For exmaple intergration with response-builder check `example` folder.
 
 ## Normalizers
 
@@ -57,8 +57,9 @@ array ( 'this' => 1, 'is' => 'my', 'content' => array ( ), )
 
 ## Encoders
 
-> We are going to create YAML encoder using great Symfony's [YAML Component](http://symfony.com/doc/current/components/yaml/introduction.html). 
-> I'm assuming you have it already installed.
+We are going to create YAML encoder using great Symfony's [YAML Component](http://symfony.com/doc/current/components/yaml/introduction.html).
+
+I'm assuming you have it already installed.
 
 Encoders have to follow `EncoderInterface`:
 ```php
@@ -95,9 +96,10 @@ bar:
     foo: bar
     bar: baz
 ```
-Lets put it all together.
 
 ## Complete example
+
+Lets put it all together.
 
 Assuming we have implemented all above. We should be able put together complete normalizer.
 We are going to serialize *Foo* object that we've created before.
@@ -124,6 +126,6 @@ content: {  }
 * [Usage](doc/usage.md)
 * [Creating Factories](doc/creating_factories.md)
 * [Response Prototypes](doc/response_prototypes.md)
-* Response Serialiers
+* Response Serializers
 * [Complete Example](doc/complete_example.md)
 * [Howto's](doc/howto.md)

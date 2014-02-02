@@ -21,17 +21,17 @@ class MyFactory extends SerializerAwareFactory implements FactoryInterface
 	public function create(PrototypeInterface $prototype = null)
     {
     	$response = new Response();
-        
+
         if (null !== $prototype) {
             $response->setPrototype($prototype);
         }
-        
+
         $response->setSerializer($this->getSerializer());
-        
+
         /**
          * Here you can alter response any way you want...
          */
-        
+
         return $response;
     }
 }
@@ -44,7 +44,7 @@ class MyFactory extends SerializerAwareFactory implements FactoryInterface
 * [Usage](usage.md)
 * Creating Factories
 * [Response Prototypes](response_prototypes.md)
-* [Response Serialiers](creating_serializers.md)
+* [Response Serializers](creating_serializers.md)
 * [Complete Example](complete_example.md)
 * [Howto's](howto.md)
 

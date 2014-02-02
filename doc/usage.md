@@ -100,6 +100,6 @@ This is really basic API, next step is using prototypes to save us some time whe
 * Usage
 * [Creating Factories](creating_factories.md)
 * [Response Prototypes](response_prototypes.md)
-* [Response Serialiers](creating_serializers.md)
+* [Response Serializers](creating_serializers.md)
 * [Complete Example](complete_example.md)
 * [Howto's](howto.md)

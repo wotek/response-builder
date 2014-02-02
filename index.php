@@ -4,50 +4,46 @@ require 'vendor/autoload.php';
 
 use Wtk\Response\Factory;
 use Wtk\Response\Factory\JsonFactory;
-
 use Wtk\Response\Serializer\Serializer;
-
 use Wtk\Response\Normalizer\FieldsNormalizer;
 use Wtk\Response\Encoder\JsonEncoder;
 
-use Wtk\Response\Prototype\DefaultPrototype;
-
-use Wtk\Response\Header\Field\Simple as SimpleHeader;
-use Wtk\Response\Header\Field\Date;
-
-use Wtk\Response\Body\Field\Message;
-
 /**
- * Abstract factory
- *
- * @var Factory
+ * @var  Wtk\Response\FactoryInterface
  */
 $factory = new Factory();
+
 /**
- * Create JSON Factory
- *
- * @var JsonFactory
+ * @var Wtk\Response\Factory\FactoryInterface
  */
 $json_factory = new JsonFactory();
-
-$normalizer = new FieldsNormalizer();
-$encoder = new JsonEncoder();
-
-$serializer = new Serializer($normalizer, $encoder);
-
-$json_factory->setSerializer($serializer);
-
 /**
- * Register it within Abstract Factory
+ * @var Wtk\Response\Normalizer\NormalizerInterface
+ */
+$normalizer = new FieldsNormalizer();
+/**
+ * Use json encoder
+ *
+ * @var Wtk\Response\Encoder\EncoderInterface
+ */
+$encoder = new JsonEncoder();
+/**
+ * @var Wtk\Response\Serializer\SerializerInterface
+ */
+$serializer = new Serializer($normalizer, $encoder);
+/**
+ * Tell factory to use serializer
+ */
+$json_factory->setSerializer($serializer);
+/**
+ * Register factory
  */
 $factory->register('json', $json_factory);
+
+
 /**
- * Create JSON reponse
- *
- * @var ResponseInterface
+ * Response prototype we are going to use:
  */
-
-
 class APIResponsePrototype
     extends \Wtk\Response\Prototype\DefaultPrototype
     implements \Wtk\Response\Prototype\PrototypeInterface
@@ -56,7 +52,15 @@ class APIResponsePrototype
     {
         parent::__construct();
 
-        /* we've skipped headers part */
+        $this->getHeaders()->add(
+            new \Wtk\Response\Header\Field\Date()
+        );
+        $this->getHeaders()->add(
+            new \Wtk\Response\Header\Field\Simple('API-Version', '1.0')
+        );
+        $this->getHeaders()->add(
+            new \Wtk\Response\Header\Field\Simple('Custom-Header', 'Value')
+        );
 
         $this->getBody()->add(
             new \Wtk\Response\Body\Field\Code(200)
@@ -92,28 +96,15 @@ class APIResponsePrototype
 }
 
 
+/**
+ * Create response
+ */
 $response = $factory->create('json', new APIResponsePrototype());
-
-// $headers = $response->getPrototype()->getHeaders();
-// $headers->add(new Date());
-// $headers->add(new SimpleHeader('API-Version', '1.0'));
-
-// $body = $response->getPrototype()->getBody();
-// $body->add(new Message('Resource found'));
-
-
-// var_dump($response->getPrototype()->getHeaders()->toArray());
-// var_dump($response->getPrototype()->getBody()->toArray());
-
-// $response = $factory->create('json');
-// $response->setStatusText('Lets say, we found entity you have asked for');
-$response->getPrototype()->setContent(array(
+$response->setContent(array(
     'id' => 1,
     'title' => 'My awesome blog post',
     'timestamp' => time(),
 ));
 
-// var_dump($response);
+$response->send();
 
-echo '<pre>';
-echo $response;
