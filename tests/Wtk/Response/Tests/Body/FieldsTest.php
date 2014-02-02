@@ -9,7 +9,7 @@
  * @license MIT
  */
 
-namespace Wtk\Response\Tests\Encoder;
+namespace Wtk\Response\Tests\Body;
 
 use Wtk\Response\Tests\ResponseTestCase;
 use Wtk\Response\Body\Fields;
