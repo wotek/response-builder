@@ -122,10 +122,10 @@ content: {  }
 
 ## Documentation
 
-* [Installation](doc/installation.md)
-* [Usage](doc/usage.md)
-* [Creating Factories](doc/creating_factories.md)
-* [Response Prototypes](doc/response_prototypes.md)
+* [Installation](installation.md)
+* [Usage](usage.md)
+* [Creating Factories](creating_factories.md)
+* [Response Prototypes](response_prototypes.md)
 * Response Serializers
-* [Complete Example](doc/complete_example.md)
-* [Howto's](doc/howto.md)
+* [Complete Example](complete_example.md)
+* [Howto's](howto.md)
