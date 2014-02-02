@@ -9,7 +9,7 @@
  * @license MIT
  */
 
-namespace Wtk\Response\Tests\Normalizer;
+namespace Wtk\Response\Tests\Serializer;
 
 use Wtk\Response\Tests\ResponseTestCase;
 
