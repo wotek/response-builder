@@ -101,4 +101,14 @@ class ResponseTestCase extends \PHPUnit_Framework_TestCase
         ;
     }
 
+    public function getArrayableMockedObject()
+    {
+        return $this->getMockBuilder(
+                        'stdClass'
+                    )
+                    ->setMethods(array('toArray'))
+                    ->getMock()
+        ;
+    }
+
 }
