@@ -213,7 +213,3 @@ When you'll print out created response body should contain:
 * [Response Serialiers](creating_serializers.md)
 * [Complete Example](complete_example.md)
 * [Howto's](howto.md)
-
-@todo: Write up base HTTPResponsePrototype -> defaults used everywhere
-@todo: Show example RestAPIResponsePrototype -> the one we are going to use
-
