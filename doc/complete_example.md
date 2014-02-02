@@ -139,10 +139,10 @@ Body:
 
 ## Documentation
 
-* [Installation](doc/installation.md)
-* [Usage](doc/usage.md)
-* [Creating Factories](doc/creating_factories.md)
-* [Response Prototypes](doc/response_prototypes.md)
-* [Response Serializers](doc/creating_serializers.md)
+* [Installation](installation.md)
+* [Usage](usage.md)
+* [Creating Factories](creating_factories.md)
+* [Response Prototypes](response_prototypes.md)
+* [Response Serializers](creating_serializers.md)
 * Complete Example
-* [Howto's](doc/howto.md)
+* [Howto's](howto.md)
