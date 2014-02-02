@@ -86,6 +86,11 @@ class Fields implements FieldsInterface
          *
          * look ^^ link ^^ for common fixes and problems here.
          */
+        $collection = $this->collection->map(function($element) {
+            return $element->stringify();
+        });
+
+        return $collection->toArray();
     }
 
     /**

@@ -208,7 +208,70 @@ class Response implements ResponseInterface
      */
     public function send()
     {
+        // headers have already been sent by the developer
+        if (headers_sent()) {
+            return $this;
+        }
 
+        list($headers, $body) = $this->prepare();
+
+        $headers = $headers->prepare();
+
+        // status
+        header(sprintf(
+                'HTTP/%s %s %s',
+                $this->getProtocolVersion(),
+                $this->getStatus(),
+                $this->getStatusText()
+            ), true, $this->getStatus());
+
+        // headers
+        foreach ($headers as $header) {
+            header($header, false, $this->getStatus());
+        }
+
+        // cookies
+        // foreach ($this->headers->getCookies() as $cookie) {
+        //     setcookie($cookie->getName(), $cookie->getValue(), $cookie->getExpiresTime(), $cookie->getPath(), $cookie->getDomain(), $cookie->isSecure(), $cookie->isHttpOnly());
+        // }
+
+        echo $body;
+
+        $this->finish();
+
+        return $this;
+    }
+
+    /**
+     * Finish request.
+     *
+     * @return void
+     */
+    protected function finish()
+    {
+        if (function_exists('fastcgi_finish_request')) {
+            fastcgi_finish_request();
+        } elseif ('cli' !== PHP_SAPI) {
+            // ob_get_level() never returns 0 on some Windows configurations, so if
+            // the level is the same two times in a row, the loop should be stopped.
+            $previous = null;
+            $obStatus = ob_get_status(1);
+            while (($level = ob_get_level()) > 0 && $level !== $previous) {
+                $previous = $level;
+                if ($obStatus[$level - 1]) {
+                    if (version_compare(PHP_VERSION, '5.4', '>=')) {
+                        if (isset($obStatus[$level - 1]['flags']) && ($obStatus[$level - 1]['flags'] & PHP_OUTPUT_HANDLER_REMOVABLE)) {
+                            ob_end_flush();
+                        }
+                    } else {
+                        if (isset($obStatus[$level - 1]['del']) && $obStatus[$level - 1]['del']) {
+                            ob_end_flush();
+                        }
+                    }
+                }
+            }
+            flush();
+        }
     }
 
     /**

@@ -1,6 +1,6 @@
 <?php
 
-require 'vendor/autoload.php';
+require '../vendor/autoload.php';
 
 use Wtk\Response\Factory;
 use Wtk\Response\Factory\JsonFactory;
@@ -59,7 +59,7 @@ class APIResponsePrototype
             new \Wtk\Response\Header\Field\Simple('API-Version', '1.0')
         );
         $this->getHeaders()->add(
-            new \Wtk\Response\Header\Field\Simple('Custom-Header', 'Value')
+            new \Wtk\Response\Header\Field\ContentType('application/json')
         );
 
         $this->getBody()->add(
@@ -100,7 +100,7 @@ class APIResponsePrototype
  * Create response
  */
 $response = $factory->create('json', new APIResponsePrototype());
-$response->setContent(array(
+$response->getPrototype()->setContent(array(
     'id' => 1,
     'title' => 'My awesome blog post',
     'timestamp' => time(),

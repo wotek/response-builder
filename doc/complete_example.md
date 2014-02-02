@@ -104,7 +104,7 @@ $factory->register('json', $json_factory);
  * Create response
  */
 $response = $factory->create('json', new APIResponsePrototype());
-$response->setContent(array(
+$response->getPrototype()->setContent(array(
     'id' => 1,
     'title' => 'My awesome blog post',
     'timestamp' => time(),
@@ -113,13 +113,28 @@ $response->setContent(array(
 
 As a result we should get:
 
-```json
+Headers:
+
+```
 HTTP/1.0 200 OK
-Date: Sun, 02 Feb 2014 21:26:47 GMT
+Date: Sun, 02 Feb 2014 21:35:18 GMT
 API-Version: 1.0
 Custom-Header: Value
+```
 
-{"code":200,"errors":[],"message":"Your request has completed succesfully","response":null,"content":{"id":1,"title":"My awesome blog post","timestamp":1391376407}}
+Body:
+
+```json
+{
+    "code":200,
+    "errors":[],
+    "message":"Your request has completed succesfully",
+    "response":{
+        "id":1,
+        "title":"My awesome blog post",
+        "timestamp":1391376918
+    }
+}
 ```
 
 ## Documentation
