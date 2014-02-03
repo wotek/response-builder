@@ -100,7 +100,7 @@ class Fields implements FieldsInterface
      */
     public function setContent($content)
     {
-        $field = new Simple('content', $content);
+        $field = new Field('content', $content);
 
         $this->add($field);
     }

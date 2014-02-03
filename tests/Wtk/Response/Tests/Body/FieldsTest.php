@@ -63,4 +63,16 @@ class FieldsTest extends ResponseTestCase
         );
     }
 
+    public function testSetContent()
+    {
+        $content = 'foo bar baz';
+        $fields = $this->getFields();
+        $fields->setContent($content);
+
+        $this->assertSame(
+            $fields->get('content')->getValue(),
+            $content
+        );
+    }
+
 }

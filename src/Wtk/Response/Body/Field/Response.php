@@ -11,12 +11,14 @@
 
 namespace Wtk\Response\Body\Field;
 
+use Wtk\Response\Body\Field;
+
 /**
  * Message field
  *
  * @author Wojtek Zalewski <wojtek@neverbland.com>
  */
-class Response extends Simple implements FieldInterface
+class Response extends Field implements FieldInterface
 {
     /**
      *
